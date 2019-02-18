@@ -57,17 +57,12 @@ def base58_decode (s, version):
     return data
 
 
-def generate (name, network):
+def generate (name, ps , pb):
 
-    # Pick network.
-    if network == 'testnet':
-        prefix_string = 'mv'
-        prefix_bytes = b'\x6f'
-    elif network == 'mainnet':
-        prefix_string = '1'
-        prefix_bytes = b'\x00'
-    else:
-        raise Exception('unknown network')
+    prefix_string = ps
+    prefix_bytes = b'\x00'
+    prefix_bytes = bytes(pb)
+    prefix_bytes = (pb).to_bytes(1, 'big')
 
     # Pad and prefix.
     prefixed_name = prefix_string + name
@@ -88,5 +83,6 @@ def generate (name, network):
 if __name__ == '__main__':
 
     name = sys.argv[1]
-    print('mainnet:', generate(name, 'mainnet'))
-    print('testnet:', generate(name, 'testnet'))
+    ps = sys.argv[2]
+    pb = int(sys.argv[3])
+    print(generate(name, ps, pb))
