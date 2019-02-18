@@ -30,7 +30,8 @@ DrFDgT7AbPGbbxfcYwrr1eoKA2nUHkQawt
 ./unspendable.py SuchLostCoin D 30  <---- a small change fixes the issue
 DSuchLostCoinXXXXXXXXXXXXXXXYhdUpU
 
-In the original (awesome) code, only Bitcoin was supported.  This will probably work for many currencies, you can test out the address with your wallet software.
+In the original (awesome) code, only Bitcoin was supported.  This will probably work for many
+ currencies, you can test out the address with your wallet software.
 
 ```
 
