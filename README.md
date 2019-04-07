@@ -1,5 +1,6 @@
 # Usage
 ```
+<<<<<<< HEAD
 Examples:
 ./unspendable.py adfadfadfa 1 0
 ./unspendable.py adfadfadfa 2 3
@@ -33,5 +34,10 @@ DSuchLostCoinXXXXXXXXXXXXXXXYhdUpU
 In the original (awesome) code, only Bitcoin was supported.  This will probably work for many
  currencies, you can test out the address with your wallet software.
 
+=======
+$ ./unspendable.py foobar
+mainnet: 1foobarXXXXXXXXXXXXXXXXXXXXXX9tU31
+testnet: mvfoobarXXXXXXXXXXXXXXXXXXXXa1wXq5
+$
+>>>>>>> parent of 446031a... Changed to be more generic
 ```
-
