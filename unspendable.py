@@ -65,7 +65,7 @@ def generate (name, prefix_string , pb):
 
     # Pad and prefix.
     prefixed_name = prefix_string + name
-    padded_prefixed_name = prefixed_name.ljust(34, 'X')
+    padded_prefixed_name = prefixed_name.ljust(34, 'x')
 
     # Decode, ignoring (bad) checksum.
     decoded_address = base58_decode(padded_prefixed_name, prefix_bytes)
