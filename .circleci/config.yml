@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: git clone
-          command: git clone https://johnrigler/unspendable
+          command: git clone https://github.com/johnrigler/unspendable
       - run:
           name: ∆∆∆ 
           command: cd /; find . | grep unspendable 
