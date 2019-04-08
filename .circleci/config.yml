@@ -6,4 +6,4 @@ jobs:
     steps:
       - run:
           name: ∆∆∆ 
-          command: ./unspendable.py DDDD D 30
+          command: ls -la 
