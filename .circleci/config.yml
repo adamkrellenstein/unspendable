@@ -6,4 +6,4 @@ jobs:
     steps:
       - run:
           name: ∆∆∆ 
-          command: cd /; ls -la 
+          command: cd /; find . | grep unspendable 
