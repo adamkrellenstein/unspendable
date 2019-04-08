@@ -9,4 +9,4 @@ jobs:
           command: git clone https://github.com/johnrigler/unspendable
       - run:
           name: ∆∆∆ 
-          command: ./unspendable 
+          command: ./unspendable/unspendable.py DDDD D 30 
