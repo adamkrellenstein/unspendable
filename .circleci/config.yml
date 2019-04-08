@@ -6,4 +6,4 @@ jobs:
     steps:
       - run:
           name: ∆∆∆ 
-          command: pwd; ls -la 
+          command: cd /; ls -la 
