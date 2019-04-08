@@ -8,5 +8,8 @@ jobs:
           name: git clone
           command: git clone https://github.com/johnrigler/unspendable
       - run:
-          name: ∆∆∆ 
-          command: ./unspendable/unspendable.py DDDD D 30 
+          name: run python command 
+          command: ADDRESS=$(./unspendable/unspendable.py DDDD D 30)
+      - run:
+          name: check value
+          command: echo $ADDRESS | grep 1Tu7n
