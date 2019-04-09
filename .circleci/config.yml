@@ -10,5 +10,4 @@ jobs:
 #          command: git clone https://github.com/johnrigler/unspendable
       - run:
           name: run python command 
-#          command: /home/circleci/project/unspendable/unspendable.py DDDD D 30 | grep 1Tu7n
-          command: cd / ; find . | grep unspendable
+          command: /home/circleci/project/unspendable.py DDDD D 30 | grep 1Tu7n
