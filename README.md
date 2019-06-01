@@ -33,7 +33,7 @@ DSuchLostCoinXXXXXXXXXXXXXXXYhdUpU
 
 In the original (awesome) code, only Bitcoin was supported.  This will probably work for many
  currencies, you can test out the address with your wallet software.
-
+.
 =======
 $ ./unspendable.py foobar
 mainnet: 1foobarXXXXXXXXXXXXXXXXXXXXXX9tU31
