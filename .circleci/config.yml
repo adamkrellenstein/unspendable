@@ -11,3 +11,9 @@ jobs:
       - run:
           name: run python command 
           command: /home/circleci/project/unspendable.py D DDD 30 | grep zpQH11
+      - run:
+          name: Docker build
+          command: docker build -t unspendable .
+      - run:
+          name: Docker run
+          command: docker run -it unspendable
