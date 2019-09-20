@@ -10,4 +10,4 @@ jobs:
 #          command: git clone https://github.com/johnrigler/unspendable
       - run:
           name: run python command 
-          command: /home/circleci/project/unspendable.py D DDDD | grep 9LHVRA 
+          command: /home/circleci/project/test/test.bash 
