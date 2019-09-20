@@ -1,7 +1,0 @@
-unspendable () 
-{ 
-    NAME=$(echo $1 | sed 's/0/o/g' | sed 's/1/L/g' | sed 's/O/o/g' | sed 's/l/L/g' | sed 's/I/i/g');
-    CHAR="9";
-    NUM=$2;
-    ~/unspendable/unspendable.py 9 $NAME $NUM
-}
