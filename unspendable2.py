@@ -89,7 +89,8 @@ def generate (name, pb):
 
 if __name__ == '__main__':
 
+    ps = sys.argv[0]
     name = sys.argv[1]
     pb = int(sys.argv[2])
-    print(generate(name, pb))
+    print(generate(ps, name, pb))
 
