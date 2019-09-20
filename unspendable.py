@@ -7,8 +7,13 @@ import binascii
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 b58_sub    = '.01234567abcdefghjklmnpqrstuvwxyz!)$(=/\_i;?"~O}{~~|*,: -+'
+<<<<<<< HEAD
 # These are the basic substitutions of dimecash (https://dime.cash)
 # This allows for a broad set of characters to be
+=======
+# These are the basic substitutions of dimecash
+# This allows for broad set of characters to be
+>>>>>>> cruff
 # easily encoded and understood
 # 
 # In some cases, the substitution is to look like
@@ -44,9 +49,12 @@ keys = [ '0','2','5','7','10','12','15','17','20','22','25',
 # The term keys may not be entirely correct, but these numbers
 # map to the b58_digits.  For example D is 30
 
+<<<<<<< HEAD
 # Dogecoin: D,AA-AZ,9s-9t
 # Litecoin: L,3
 
+=======
+>>>>>>> cruff
 def split(word):
     return [char for char in word]
 
@@ -142,11 +150,19 @@ if __name__ == '__main__':
     # other code sets such as
     # for Dogecoin: 9s - 9z and the A ranges
 
+<<<<<<< HEAD
     name = ps + ''.join(list)
 
     padded_name = name.ljust(28,'z')
 
     index = b58_digits.find(ps[0])
+=======
+    name = "DCx" + ''.join(list)
+
+    padded_name = name.ljust(28,'z')
+
+    index = b58_digits.find(ps)
+>>>>>>> cruff
 
     print(generate(ps, padded_name , int(keys[index])))
 
