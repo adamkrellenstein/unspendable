@@ -6,12 +6,11 @@ import binascii
 
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-b58_sub    = '.01234567abcdefghjklmnpqrstuvwxyz~~~~~~~~i~~~~O~~~~~~~~ ~~'
-
-keys = [ '0','2','5','7','10','12','15','17','20','22','25','27','30','32','35','37','40','42','45','48','50','53','55','58','60','63','65','68','70','73','75','78','80','83','85','88','91','93','96','98','101','103','106','108','111','113','116','118','121','123','126','128','131','134','136','139','141','144' ]
-
-def split(word):
-    return [char for char in word]
+b58_dcmap  = '.01234567abcdefghjklmnpqrstuvwxyz!($)=/\_i;?" o}{  |*,: - '
+b58_sft    = '89       ABCDEFGHJLKMNPQRSTUVWXYZ < >    I    O][         ' 
+b58_res    = '                                             s    s    s e'
+b58_res2   = '                                             q    f    p o'
+b58_res3   = '                                             t    t    c l'
 
 def base58_check_encode(b, version):
     d = version + b
@@ -63,18 +62,21 @@ def base58_decode (s, version):
     return data
 
 
-def generate (name, prefix_string , pb):
+def generate (name, pb):
 
+    prefix_string = name[0]
     prefix_bytes = b'\x00'
     prefix_bytes = bytes(pb)
     prefix_bytes = (pb).to_bytes(1, 'big')
 
+    if prefix_string == 'D':
+        pb = 30;
+
     # Pad and prefix.
-    prefixed_name = prefix_string + name
-    padded_prefixed_name = prefixed_name.ljust(34, 'z')
+    padded_name = name.ljust(34, 'z')
 
     # Decode, ignoring (bad) checksum.
-    decoded_address = base58_decode(padded_prefixed_name, prefix_bytes)
+    decoded_address = base58_decode(padded_name, prefix_bytes)
 
     # Re-encode, calculating checksum.
     address = base58_check_encode(decoded_address, prefix_bytes)
@@ -87,24 +89,7 @@ def generate (name, prefix_string , pb):
 
 if __name__ == '__main__':
 
-    ps = sys.argv[1]
-    name = sys.argv[2]
-    list = split(name)
-
-    cnt = 0
-    for n, c in enumerate(list):
-       x = b58_sub.find(c)
-       if x!= -1:
-          list[cnt] = b58_digits[x]
-       if c == 'i':
-          list[cnt] = 'i'
-       cnt=cnt+1
-
-    name = "DCx" + ''.join(list)
-
-    padded_name = name.ljust(28,'z')
-
-    index = b58_digits.find(ps)
-
-    print(generate(ps, padded_name , int(keys[index])))
+    name = sys.argv[1]
+    pb = int(sys.argv[2])
+    print(generate(name, pb))
 
