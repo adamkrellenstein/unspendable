@@ -6,6 +6,17 @@ import binascii
 
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+b58_dcmap  = '.01234567abcdefghjklmnpqrstuvwxyz!($)=/\_i;?"~o}{@~|*,: -~'
+b58_sft    = '89       ABCDEFGHJLKMNPQRSTUVWXYZ < >    I    O][         '
+
+# b58_dcmap is the dimecash mapping
+# Dimecash seeks to create an language where all of the readable text
+# is capitalized, the small letter x is uses for space, and other 
+# various conventions until all of the ascii characters are represented
+# the small s will be a shift that will enable b58_sft
+
+# In this version of the code, everything will be interpreted this way
+# and the name field can include spaces if it is double-quoted
 
 seeds = [ '0','3','5','7','10','12','15','17','20','22','25',
          '27','30','32','35','37','40','42','45','48','50',
@@ -22,7 +33,10 @@ seeds = [ '0','3','5','7','10','12','15','17','20','22','25',
 
 # This may also be why the padding messes up at the 
 # end sometimes, and why the original code makes 
-# reference to bad checksums on line 116
+# reference to bad checksums on line 150ish
+
+def split(word):
+    return [char for char in word]
 
 def base58_check_encode(b, version):
     d = version + b
@@ -150,5 +164,22 @@ def generate (prefix_string, name):
 if __name__ == '__main__':
 
     prefix_string = sys.argv[1]
-    name = sys.argv[2]
+
+    list = split(sys.argv[2])
+
+    cnt = 0
+    for n, c in enumerate(list):
+       x = b58_dcmap.find(c)
+       if x!= -1:
+          list[cnt] = b58_digits[x]
+       if c == 'i':
+          list[cnt] = 'i'
+       cnt=cnt+1
+
+    # DCx is hard-coded in next steps
+    # are to fix this to support
+    # other code sets such as
+    # for Dogecoin: 9s - 9z and the A ranges
+
+    name = ''.join(list)
     print(generate(prefix_string, name))
