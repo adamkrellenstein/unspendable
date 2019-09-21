@@ -1,15 +1,48 @@
 # Usage
 ```
-Examples:
-=> ./unspendable.py DCx "fun.times () { ls ~; }"
-DCxFUN1TiMESxdbxqxLSxnjxpzzzAyhAmP
-=> ./unspendable.py DCx "this is the stuff"
-DCxTHiSxiSxTHExSTUFFzzzzzzzzCnzYCP
+To see a sample, load the test environment into the shell and run the 
+unspendable_test function:
 
-In dogecoin, 9s-9z and the A range should also work, but at
-least DCx seems good now.
+. test/test.bash
+unspendable_test
 
-[[ master is currently broken, but the code in v1.0 works ]]
-[[ some examples that I created are in the .circleci subdir ]]
+=> unspendable_test
+1DDxxDDDDDDDDDzzzzzzzzzzzzzzaGWgks
+2DDxxDDDDDDDDDzzzzzzzzzzzzzzWGXZh6
+3DDxxDDDDDDDDDzzzzzzzzzzzzzzZXtrDD
+4DDxxDDDDDDDDDzzzzzzzzzzzzzzYCafkz
+5DDxxDDDDDDDDDzzzzzzzzzzzzzzXM2ha4
+6DDxxDDDDDDDDDzzzzzzzzzzzzzzYdBEJo
+7DDxxDDDDDDDDDzzzzzzzzzzzzzzZdgquo
+8DDxxDDDDDDDDDzzzzzzzzzzzzzzZi1QgV
+9sDDxxDDDDDDDDDzzzzzzzzzzzzzbvDnww
+9tDDxxDDDDDDDDDzzzzzzzzzzzzzZmktdR
+9uDDxxDDDDDDDDDzzzzzzzzzzzzzcnzT95
+9vDDxxDDDDDDDDDzzzzzzzzzzzzzZThxDt
+9wDDxxDDDDDDDDDzzzzzzzzzzzzzc6UJu3
+9xDDxxDDDDDDDDDzzzzzzzzzzzzzadDUCL
+9yDDxxDDDDDDDDDzzzzzzzzzzzzzaWFpuU
+9zDDxxDDDDDDDDDzzzzzzzzzzzzzWbLf2U
+ADDxxDDDDDDDDDzzzzzzzzzzzzzzWx5L8x
+BDDxxDDDDDDDDDzzzzzzzzzzzzzzVUEU8h
+CDDxxDDDDDDDDDzzzzzzzzzzzzzzWUnrwp
+DDDxxDDDDDDDDDzzzzzzzzzzzzzzYajAPk
+DCDDxxDDDDDDDDDzzzzzzzzzzzzzbKE1aD
+DCxDDxxDDDDDDDDDzzzzzzzzzzzzU5kjpN
+EDDxxDDDDDDDDDzzzzzzzzzzzzzzV1ZCQW
+FDDxxDDDDDDDDDzzzzzzzzzzzzzzVjutFL
+GDDxxDDDDDDDDDzzzzzzzzzzzzzzaAVXEU
+HDDxxDDDDDDDDDzzzzzzzzzzzzzzWVFTan
+JDDxxDDDDDDDDDzzzzzzzzzzzzzzV8f3k9
+KDDxxDDDDDDDDDzzzzzzzzzzzzzzYxTgTt
+mvDDxxDDDDDDDDDzzzzzzzzzzzzzc3bLcu
+
+Usage: ./unspendable.py [prefix] [body]
+
+In this version, the following characters are not allowed: i,0,O,l
+
+The base-58 characters that can be used are listed at the top of the script.
+
+
 
 ```
