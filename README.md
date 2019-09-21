@@ -9,27 +9,8 @@ unspendable_test
 => unspendable_test
 1DDxxDDDDDDDDDzzzzzzzzzzzzzzaGWgks
 2DDxxDDDDDDDDDzzzzzzzzzzzzzzWGXZh6
-3DDxxDDDDDDDDDzzzzzzzzzzzzzzZXtrDD
-4DDxxDDDDDDDDDzzzzzzzzzzzzzzYCafkz
-5DDxxDDDDDDDDDzzzzzzzzzzzzzzXM2ha4
-6DDxxDDDDDDDDDzzzzzzzzzzzzzzYdBEJo
-7DDxxDDDDDDDDDzzzzzzzzzzzzzzZdgquo
-8DDxxDDDDDDDDDzzzzzzzzzzzzzzZi1QgV
-9sDDxxDDDDDDDDDzzzzzzzzzzzzzbvDnww
-9tDDxxDDDDDDDDDzzzzzzzzzzzzzZmktdR
-9uDDxxDDDDDDDDDzzzzzzzzzzzzzcnzT95
-9vDDxxDDDDDDDDDzzzzzzzzzzzzzZThxDt
-9wDDxxDDDDDDDDDzzzzzzzzzzzzzc6UJu3
-9xDDxxDDDDDDDDDzzzzzzzzzzzzzadDUCL
-9yDDxxDDDDDDDDDzzzzzzzzzzzzzaWFpuU
-9zDDxxDDDDDDDDDzzzzzzzzzzzzzWbLf2U
-ADDxxDDDDDDDDDzzzzzzzzzzzzzzWx5L8x
-BDDxxDDDDDDDDDzzzzzzzzzzzzzzVUEU8h
-CDDxxDDDDDDDDDzzzzzzzzzzzzzzWUnrwp
-DDDxxDDDDDDDDDzzzzzzzzzzzzzzYajAPk
-DCDDxxDDDDDDDDDzzzzzzzzzzzzzbKE1aD
-DCxDDxxDDDDDDDDDzzzzzzzzzzzzU5kjpN
 EDDxxDDDDDDDDDzzzzzzzzzzzzzzV1ZCQW
+...
 FDDxxDDDDDDDDDzzzzzzzzzzzzzzVjutFL
 GDDxxDDDDDDDDDzzzzzzzzzzzzzzaAVXEU
 HDDxxDDDDDDDDDzzzzzzzzzzzzzzWVFTan
@@ -39,9 +20,22 @@ mvDDxxDDDDDDDDDzzzzzzzzzzzzzc3bLcu
 
 Usage: ./unspendable.py [prefix] [body]
 
-In this version, the following characters are not allowed: i,0,O,l
+The code is now on version 2.0, but is backwards
+compatible with version 1:
 
-The base-58 characters that can be used are listed at the top of the script.
+(version 1, you have to specify the seed and no character
+substition or help.  It just fails if you type a capital I)
+
+=> ./unspendable.py D DDDD 30
+DDDDDzzzzzzzzzzzzzzzzzzzzzzzT1kYx9
+
+(version 2, no seed required and many ascii characters 
+are supported.  I haven't included a way to translate
+back yet, but after a while, you can read this stuff
+without any help.)
+
+=> ./unspendable.py DCx "this is the stuff"
+DCxTHiSxiSxTHExSTUFFzzzzzzzzbSG1oo
 
 
 
