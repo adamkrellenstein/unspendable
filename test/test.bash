@@ -1,4 +1,4 @@
-if [[ $CIRCLE_CI == 'true' ]]
+if [[ $CIRCLECI == 'true' ]]
 then
 DIR=/home/circleci/project
 else
