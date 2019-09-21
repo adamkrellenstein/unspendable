@@ -7,6 +7,23 @@ import binascii
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
+seeds = [ '0','3','5','7','10','12','15','17','20','22','25',
+         '27','30','32','35','37','40','42','45','48','50',
+         '53','55','58','60','63','65','68','70','73','75',
+         '78','80','83','85','88','91','93','96','98','101',
+         '103','106','108','111','113','116','118','121',
+         '123','126','128','131','134','136','139','141','144' ]
+
+# The seeds aren't perfect, the second character will 
+# sometimes mean that the seed fails, I will
+# have to run this again with a 1 and a z in each
+# case, these seeds were found for AAAA,BBBB,CCCC,DDDD
+# which was a bit arbitrary
+
+# This may also be why the padding messes up at the 
+# end sometimes, and why the original code makes 
+# reference to bad checksums on line 116
+
 def base58_check_encode(b, version):
     d = version + b
     address = d + dhash(d)[:4]
@@ -57,15 +74,66 @@ def base58_decode (s, version):
     return data
 
 
-def generate (name, prefix_string , pb):
+def generate (prefix_string, name):
 
-    prefix_bytes = b'\x00'
-    prefix_bytes = bytes(pb)
-    prefix_bytes = (pb).to_bytes(1, 'big')
+    # Find the prefix_bytes from the first character of the prefix
+    first_char = prefix_string[0]
+    seed_ref = b58_digits.find(first_char)
+    prefix_char_seed = int(seeds[seed_ref])
+    prefix_bytes = (prefix_char_seed).to_bytes(1, 'big')
+
+
+    # Special Kludge for my favorite dogecoin range
+    # I will come up with something more elegant later
+
+    if (prefix_string == '9s'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9t'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9u'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9v'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9w'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9x'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9y'):
+         prefix_bytes = b'\x16'
+    elif (prefix_string == '9z'):
+         prefix_bytes = b'\x16'
 
     # Pad and prefix.
-    prefixed_name = prefix_string + name
-    padded_prefixed_name = prefixed_name.ljust(34, 'z')
+    prefixed_name = prefix_string + name 
+    partly_padded_prefixed_name = prefixed_name.ljust(28,'z')
+    # partly_padded_prefixed_name = prefixed_name
+    # This seems to work as two sets, see comments below
+    padded_prefixed_name = partly_padded_prefixed_name.ljust(34, 'X')
+
+    # What I really want to do is pad the prefix
+    # name with a small z, but doing it here
+    # seems to give inconsistent results
+    # Padding with just a capital Z works
+    # but is not what I want to use
+
+    # EDDDDDDDDDDE11111111111111111Gk54D
+    # FDDDDDDDDDDE111111111111111123L5F2
+    # GDDDDDDDDDDE11111111111111114d4Hd3
+    # HDDDDDDDDDDE11111111111111111U5ouh
+    # JDDDDDDDDDDE11111111111111111LQNJo
+    # KDDDDDDDDDDDzzzzzzzzzzzzzzzzzsdadA
+    # mvDDDDDDDDDDE1111111111111111CW9AV
+
+    # EDDDDDDDDDDDZZZZZZZZZZZZZZZZeMDHXH
+    # FDDDDDDDDDDDZZZZZZZZZZZZZZZZZwwLbi
+    # GDDDDDDDDDDDZZZZZZZZZZZZZZZZcrgkxC
+    # HDDDDDDDDDDDZZZZZZZZZZZZZZZZZpM6E8
+    # JDDDDDDDDDDDZZZZZZZZZZZZZZZZbgYpBG
+    # KDDDDDDDDDDDZZZZZZZZZZZZZZZZd79WxX
+    # mvDDDDDDDDDDDZZZZZZZZZZZZZZZYLf2rF
+
+    # I have had success simply calculating
+    # this elsewhere.  This is a strange bug
 
     # Decode, ignoring (bad) checksum.
     decoded_address = base58_decode(padded_prefixed_name, prefix_bytes)
@@ -81,8 +149,6 @@ def generate (name, prefix_string , pb):
 
 if __name__ == '__main__':
 
-    name = sys.argv[1]
-    prefix_string = sys.argv[2]
-    pb = int(sys.argv[3])
-    print(generate(name, prefix_string , pb))
-
+    prefix_string = sys.argv[1]
+    name = sys.argv[2]
+    print(generate(prefix_string, name))
