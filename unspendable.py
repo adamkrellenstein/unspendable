@@ -6,8 +6,8 @@ import binascii
 
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
 b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-b58_dcmap  = '.01234567abcdefghjklmnpqrstuvwxyz!)$(=/\_i;?"~o}{@~|*,: -~'
-b58_sft    = '89       ABCDEFGHJLKMNPQRSTUVWXYZ < >    I    O][         '
+b58_dcmap  = '123456789abcdefghjklmnpqrstuvwxyz!)$(=/\_i;?"~o}{@~|*,: -~'
+b58_sft    = '         ABCDEFGHJLKMNPQRSTUVWXYZ < >    I    O][         '
 
 # b58_dcmap is the dimecash mapping
 # Dimecash seeks to create an language where all of the readable text
