@@ -4,6 +4,7 @@ pipeline {
   stage('Stage 1') {
       steps {
         script {
+          hostname
           echo 'Stage 1'
         }
       }
