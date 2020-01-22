@@ -4,14 +4,14 @@ pipeline {
   stage('Stage 1') {
       steps {
         script {
-          sh 'echo xxx' 
+          sh 'pwd' 
         }
       }
     }
   stage('Stage 2') {
       steps {
         script {
-          sh 'echo yyy' 
+          sh 'python -v' 
         }
       }
     }
