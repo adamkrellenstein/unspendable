@@ -1,17 +1,17 @@
 pipeline {
-  agent any
+  agent 192.168.0.121
   stages {
   stage('Stage 1') {
       steps {
         script {
-          sh 'pwd' 
+          sh 'echo xxx' 
         }
       }
     }
   stage('Stage 2') {
       steps {
         script {
-          sh 'date' 
+          sh 'echo yyy' 
         }
       }
     }
