@@ -13,6 +13,11 @@ pipeline {
         script {
           sh 'python -v' 
         }
+        post {
+            always {
+                jiraSendBuildInfo site: 'secretbeach.atlassian.net'
+          }
+        }
       }
     }
   }
