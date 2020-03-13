@@ -6,7 +6,7 @@ $lines = count($chord);
 $thisline = 1;
 $amount = "0.0001";
 
-echo "dogecoin-cli sendmany \"\" \"{\\\n";
+echo "/usr/local/bin/dogecoin-cli sendmany \"\" \"{\\\n";
 foreach($chord as $line)
    {
      $address = chop($line);

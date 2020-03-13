@@ -37,7 +37,12 @@ without any help.)
 => ./unspendable.py DCx "this is the stuff"
 DCxTHiSxiSxTHExSTUFFzzzzzzzzbSG1oo
 
+This package now also included the first message of the
+"Echoland Broadcast" which will take place daily at 11:32 UTC. 
+
+Call echoland.bash from cron at 11:32 UTC to participate:
 
 
 
+32 11 * * * /root/unspendable/echoland.bash >> /tmp/echoland.out 2>&1
 ```
