@@ -172,7 +172,7 @@ if __name__ == '__main__':
        x = b58_dcmap.find(c)
        if x!= -1:
           list[cnt] = b58_digits[x]
-       if c == 'i':
+       if c == 'I':
           list[cnt] = 'i'
        cnt=cnt+1
 
