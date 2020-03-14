@@ -174,6 +174,10 @@ if __name__ == '__main__':
           list[cnt] = b58_digits[x]
        if c == 'I':
           list[cnt] = 'i'
+
+       if c == '0':
+          list[cnt] = 'o'
+
        cnt=cnt+1
 
     # DCx is hard-coded in next steps
