@@ -37,4 +37,10 @@ without any help.)
 => ./unspendable.py DCx "this is the stuff"
 DCxTHiSxiSxTHExSTUFFzzzzzzzzbSG1oo
 
+Apr/27/2021
+
+I have added un3.cgi and unspendable.html. The cgi script goes in
+your /usr/lib/cgi-bin directory. Its a script. Yea, deal with it.
+
+
 ```
