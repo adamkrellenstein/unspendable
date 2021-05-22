@@ -1,19 +1,62 @@
 #! /usr/bin/env python3
 
+# unspendable is licensed via github and a digibyte-ipfs 
+# registration system
+# https://github.com/johnrigler/unspendable
+# forked from
+# https://github.com/adamkrellenstein/unspendable
+
+# Copyright 2020 Secret Beach Solutions, LLC 
+
+# Proof of Organization on May 14, 2020 
+
+## copyright 2021 DCxSECRETxBEACHxSoLUTioNSzzz
+## dogecoin:3f00bfca5133b8e68bab5146628157d3ca21de92221a712627bc1e02e5c74500
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#    http://www.apache.org/licenses/LICENSE-2.0
+
+## license QmNprJ78ovcUuGMoMFiihK7GBpCmH578JU8hm43uxYQtBw
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 import sys
 import hashlib
 import binascii
 
 dhash = lambda x: hashlib.sha256(hashlib.sha256(x).digest()).digest()
-b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-b58_dcmap  = '123456789abcdefghjklmnpqrstuvwxyz!)$(=/\.i;?"~o}{@~|*,: -~'
-b58_sft    = '         ABCDEFGHJLKMNPQRSTUVWXYZ < >    I    O][         '
 
-# b58_dcmap is the dimecash mapping
-# Dimecash seeks to create an language where all of the readable text
+# While the character replacements are somewhat 
+# arbitrary, I was trying to use some visual
+# clue. For example, small c is somewhat like  
+# a circle which is somewhat like 0
+
+# About the time I made the zero as small c assignment,
+# I also transposed the meaning of period and comma.
+# If colon (two dots) is w then period should be v (one dot)
+# Since I have been the only one using this system so far
+# now would be the time to switch this back
+# all old record (before May 22 11:09 AM CST) will then
+# have a different mapping
+
+b58_digits = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+b58_dcmap  = '123456789abcdefghjklmnpqrstuvwxyz!)0(=/\,i;?"_o}{@+|*.: -~'
+
+# python3 unspendable.py DCx "a,b,c."
+# DCxAhBhCvzzzzzzzzzzzzzzzzzzzYsQKEw
+
+# b58_dcmap is the DiMECASH mapping
+# DiMECASH seeks to create an language where all of the readable text
 # is capitalized, the small letter x is uses for space, and other 
-# various conventions until all of the ascii characters are represented
-# the small s will be a shift that will enable b58_sft
+# various conventions are applied until all of the ascii characters are represented
 
 # In this version of the code, everything will be interpreted this way
 # and the name field can include spaces if it is double-quoted
@@ -26,10 +69,7 @@ seeds = [ '0','3','5','7','10','12','15','17','20','22','25',
          '123','126','128','131','134','136','139','141','144' ]
 
 # The seeds aren't perfect, the second character will 
-# sometimes mean that the seed fails, I will
-# have to run this again with a 1 and a z in each
-# case, these seeds were found for AAAA,BBBB,CCCC,DDDD
-# which was a bit arbitrary
+# sometimes mean that the seed fails
 
 # This may also be why the padding messes up at the 
 # end sometimes, and why the original code makes 
@@ -175,15 +215,14 @@ if __name__ == '__main__':
        if c == 'I':
           list[cnt] = 'i'
 
-       if c == '0':
+       if c == 'O':
           list[cnt] = 'o'
+
+       if c == "'":
+          list[cnt] = 'y'
 
        cnt=cnt+1
 
-    # DCx is hard-coded in next steps
-    # are to fix this to support
-    # other code sets such as
-    # for Dogecoin: 9s - 9z and the A ranges
 
     name = ''.join(list)
     print(generate(prefix_string, name))
