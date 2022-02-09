@@ -76,7 +76,4 @@ I use LinkedIn like Facebook, so that is the best way to find me.
 
 https://www.linkedin.com/in/jrigler/
 
-Also check out my latest project: https://ledger.church/broadcast 
-
-
 ```
