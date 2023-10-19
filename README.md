@@ -18,29 +18,6 @@ This code set creates a standardized set of character replacements which can rep
 
 Usage: ./unspendable.py [prefix] [body]
 
-DAxAhBhCvxDwEyFzzzzzzzzzzzzzYmxRjP
-DBxAhBhCvxDwEyFzzzzzzzzzzzzza74Amo
-DCxAhBhCvxDwEyFzzzzzzzzzzzzzZbP8fn
-DExAhBhCvxDwEyFzzzzzzzzzzzzzXFfneb
-DFxAhBhCvxDwEyFzzzzzzzzzzzzzZDGMbY
-DGxAhBhCvxDwEyFzzzzzzzzzzzzzathuAJ
-DHxAhBhCvxDwEyFzzzzzzzzzzzzzXgXcva
-DJxAhBhCvxDwEyFzzzzzzzzzzzzzUcggJ5
-DKxAhBhCvxDwEyFzzzzzzzzzzzzzXQtusk
-DLxAhBhCvxDwEyFzzzzzzzzzzzzzW4E7oZ
-DMxAhBhCvxDwEyFzzzzzzzzzzzzzVTAJWk
-DNxAhBhCvxDwEyFzzzzzzzzzzzzzZXiSyS
-DPxAhBhCvxDwEyFzzzzzzzzzzzzzWHsxgK
-DQxAhBhCvxDwEyFzzzzzzzzzzzzzXqVkeM
-DRxAhBhCvxDwEyFzzzzzzzzzzzzzY6MWaF
-DSxAhBhCvxDwEyFzzzzzzzzzzzzza7nwwZ
-DTxAhBhCvxDwEyFzzzzzzzzzzzzzWSmXBA
-
-The code is now on version 2.0, but is backwards
-compatible with version 1:
-
-(version 1, you have to specify the seed and no character
-substition or help.  It just fails if you type a capital I)
 
 => ./unspendable.py D DDDD 30
 DDDDDzzzzzzzzzzzzzzzzzzzzzzzT1kYx9
