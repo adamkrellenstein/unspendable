@@ -1,3 +1,17 @@
+# Purpose
+
+The original unspendable code was used to create "obviously unspendable" cryptocurrency addresses. An example is 
+described here:
+
+https://bitcoin.stackexchange.com/questions/35842/is-it-actually-possible-to-create-a-verifiably-unspendable-address
+
+The referenced address is "1BitcoinEaterAddressDontSendf59kuE". Bitcoin addresses must follow certain rules. They often start with the number 1 and the last six characters appear to be random (they aren't). This address is meant as an instruction: "Bitcoin Eater, don't send". Any crypto transaction sent to this address is understood to be "burned" or not retrievable. This is because the address was constructed in an special way that does not have a private key. If it did have a private key, it would not contain such an obvioulsly readable statement. This particular address would normally take a significant amount to time to find (thousands if not millions of years).
+
+Obviously unspendable addresses are different from "vanity addresses" which contain a short word. These addresses tend to use every available character in their message.
+
+This code set creates a standardized set of character replacements which can represent natural language in a much more exact way. The exact mapping presented here is known as "MacDougal". The macdougal.js script prints out the simple substitution table.
+
+
 # Usage
 ```
 
