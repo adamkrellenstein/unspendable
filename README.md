@@ -13,7 +13,6 @@ This code set creates a standardized set of character replacements which can rep
 
 
 # Usage
-```
 
 
 Usage: ./unspendable.py [prefix] [body]
@@ -57,11 +56,42 @@ longer words for currencies such as Tezos or Zcash that have a different
 length. If you do, then please submit a pull request and I will consider your
 changes.
 
+October/19/2023
+
+The character mapping scheme that we are calling "MacDougal" contains one other element. The first character of the address is determined by the currency. Bitcoin requires "1", "2", etc. while Dogecoin and Digibyte accept "D". In the python script (as imperfect as it is), not all second characters are supported. The code throws up jibberish sometimes. Rather than fix this, I just leaned into it and assigned a special meaning to the second character. The third character is always "x". So the second characters that I use are:
+
+A,B,C,D,E
+
+Thus, in Dogecoin, we have: DAx.... DBx..... DCx..... DDx.... DEx....
+
+Here is what they mean. 
+
+DAx: This is a reference to a real person, so it would be their name:
+
+DAxDAViDxBoWiEzzz
+
+DBx: This is a reference to the transport mechanism:
+
+DBxYoUTUBEvCoMzzz
+
+DCx: This is the subject and is often sent by itself if from a smart phone:
+
+DCxGoLDENxYEARSzzz
+
+DDx and DEx: These are uses to represent a first version IPFS address cut in half.
+
+These are rarely used because if you run dogecoind or digibyted (or any similar daemon), you send an IPFS address in the OP_RETURN field without having to go through the permutation of hacking into this range. After all, the DAx, DBx, and DCx ranges transform a standard block explorer into a Web3 entry point because you can drill and spin through them like a crude database:
+
+https://digibyteblockexplorer.com/address/DBxYoUTUBEvCoMzzzzzzzzzzzzzzZ31xMU
+
+But you would never search on the first 1/2 of an IPFS address (unless you decide that this is of value). 
+
+If you are using BSV (Satoshi Vision), this OP_RETURN field becomes an entire universe of possibilities because the size of the field is not limited to 80 characters. For other currencies you could store values in Base64. This would get you more space than ascii and totally encompasses Base58, but this field is really beyond the scope of this tool.
+
 Thanks 
 
 John Rigler
-john@rigler.org (alias)
-john.rigler@protonmail.com
+john@rigler.org
 
 I use LinkedIn like Facebook, so that is the best way to find me.
 
