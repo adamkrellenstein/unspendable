@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.1
+    steps:
+      - checkout
+#      - run:
+#          name: git clone
+#          command: git clone https://github.com/johnrigler/unspendable
+      - run:
+          name: run python command 
+          command: /home/circleci/project/test/test.bash 
